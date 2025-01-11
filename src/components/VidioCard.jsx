@@ -13,8 +13,7 @@ const VidioCard = ({ info }) => {
             <ul>
                 <li className='py-3 font-bold'>{title}</li>
                 <li className='pb-2 font-medium'>{channelTitle}</li>
-                <li>{viewCount}Views  </li>
-                <li></li>
+                <li>{viewCount}Views</li>
             </ul>
         </div>
     )

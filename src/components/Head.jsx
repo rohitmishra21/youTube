@@ -22,13 +22,11 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + query)
     const json = await data.json()
     setSearchlist(json[1])
-
-
   }
 
   return (
     <>
-      <div className='flex items-center shadow-sm px-2 shadow-gray-400 justify-between w-full py-4 '>
+      <div className='flex items-center shadow-sm px-2 shadow-gray-400 justify-between w-full  py-4 '>
         <div className='flex items-center gap-3'>
           <FiMenu size={30} onClick={toggleHendler} className='cursor-pointer' />
           {LOGO_SVG}

@@ -4,10 +4,10 @@ import ButtonLists from './ButtonLists'
 
 const MainContaner = () => {
     return (
-        <div>
+        < div className='w-[88%]' >
             <ButtonLists />
             <VidioContaner />
-        </div>
+        </ div>
     )
 }
 
