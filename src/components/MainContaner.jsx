@@ -1,11 +1,11 @@
 import React from 'react'
-import Button from './Button'
 import VidioContaner from './VidioContaner'
+import ButtonLists from './ButtonLists'
 
 const MainContaner = () => {
     return (
         <div>
-            <Button />
+            <ButtonLists />
             <VidioContaner />
         </div>
     )

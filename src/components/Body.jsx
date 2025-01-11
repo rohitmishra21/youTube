@@ -1,12 +1,12 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-import MainContaner from './MainContaner'
+import { Outlet } from 'react-router-dom'
 
 const Body = () => {
     return (
         <div className='flex'>
             <Sidebar />
-            <MainContaner />
+            <Outlet />
         </div>
     )
 }
