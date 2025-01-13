@@ -1,7 +1,8 @@
 import React from 'react'
-
 const VidioCard = ({ info }) => {
 
+
+ 
 
     const { snippet, statistics } = info || {};
     const { thumbnails, title, channelTitle } = snippet || {};

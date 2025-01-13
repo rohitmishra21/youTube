@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDIOS_API } from '../utils/contants'
 import VidioCard from './VidioCard'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Details } from '../store/Reducers/appSlice'
 
 const VidioContaner = () => {
 
@@ -17,6 +19,12 @@ const VidioContaner = () => {
     setVidios(json.items);
 
   }
+
+
+  const dispatch = useDispatch()
+  dispatch(Details(vidios))
+  const selectedData = useSelector((state) => state)
+  console.log(selectedData);
 
   return (
     <div className='flex flex-wrap gap-3'>
