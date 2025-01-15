@@ -1,13 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import Comment from "./Comment";
+import CommentData from "./CommentData";
 
 
 
 const WatchFullContaner = () => {
     const search = useParams()
     const data = useSelector((state) => state.app.data)
-    console.log(data);
 
     return (
         <div className="mt-1">
@@ -27,10 +28,9 @@ const WatchFullContaner = () => {
                     </div>
 
                 </div>
-                <div>
 
-                </div>
             </div>
+            <CommentData />
         </div>
     );
 };
