@@ -22,14 +22,13 @@ const VidioContaner = () => {
     dispatch(vidioUpdate(json.items));
   }
 
-
-
   return (
     <div className='flex flex-wrap gap-3'>
       {selectedData.map((vidio, i) => (
-        <Link to={`/watch/${vidio.id}`} state={vidio} key={i}>
+        <Link to={vidio.id.videoId ? `/watch/${vidio.id.videoId}` : `/watch/${vidio.id}`} state={vidio} key={i}>
           <VidioCard info={vidio} />
         </Link>
+
       ))}
     </div>
   )

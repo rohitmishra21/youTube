@@ -17,7 +17,7 @@ const Router = createBrowserRouter([
         element: <MainContaner />
       },
       {
-        path: `/watch/:id`,
+        path: "/watch/:id",
         element: <WatchFullContaner />,
       }
     ]

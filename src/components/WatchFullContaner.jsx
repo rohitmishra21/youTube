@@ -3,9 +3,11 @@ import { useLocation, useParams } from "react-router-dom";
 import CommentData from "./CommentData";
 import { buttonData } from "../utils/contants";
 import VidioContaner from "./VidioContaner";
+import ScrollToTop from "../utils/Scroll";
 
 
 const WatchFullContaner = () => {
+
     const search = useParams()
     const location = useLocation()
     const info = location.state
@@ -14,7 +16,9 @@ const WatchFullContaner = () => {
     const { viewCount } = statistics || {};
 
     return (
+        
         <div className="flex gap-10">
+            <ScrollToTop/>
             <div className="mt-1 ">
                 <div className="flex">
                     <div className="w-[1000px]">

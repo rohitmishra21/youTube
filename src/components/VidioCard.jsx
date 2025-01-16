@@ -5,6 +5,7 @@ const VidioCard = ({ info }) => {
   const { viewCount } = statistics || {};
 
 
+
   return (
     <div className="w-80  h-96 py-8">
       <img className="rounded" src={thumbnails?.medium?.url} alt="" />

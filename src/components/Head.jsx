@@ -5,6 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../store/Reducers/appSlice.jsx';
 import { YOUTUBE_SEARCH_API, YOUTUBE_SEARCH_SUGGESTION_API } from '../utils/contants.jsx';
+import { vidioUpdate } from '../store/Reducers/vidioData.jsx';
 const Head = () => {
 
   const [query, setQuery] = useState("")
@@ -16,7 +17,6 @@ const Head = () => {
   }
   useEffect(() => {
     searchHendler()
-
   }, [query])
 
   async function searchHendler() {
@@ -29,7 +29,10 @@ const Head = () => {
     setSearchlist(searchlist.length > 0)
     const data = await fetch(YOUTUBE_SEARCH_API + suggestion);
     const json = await data.json();
+    dispatch(vidioUpdate(json.items))
+    setQuery("")
   }
+
 
   return (
     <>
