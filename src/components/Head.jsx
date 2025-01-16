@@ -4,11 +4,12 @@ import { LOGO_SVG } from '../utils/svg.jsx';
 import { FiSearch } from "react-icons/fi";
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../store/Reducers/appSlice.jsx';
-import { YOUTUBE_SEARCH_SUGGESTION_API } from '../utils/contants.jsx';
+import { YOUTUBE_SEARCH_API, YOUTUBE_SEARCH_SUGGESTION_API } from '../utils/contants.jsx';
 const Head = () => {
 
   const [query, setQuery] = useState("")
   const [searchlist, setSearchlist] = useState([])
+
   const dispatch = useDispatch()
   function toggleHendler() {
     dispatch(toggleMenu())
@@ -22,6 +23,12 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + query)
     const json = await data.json()
     setSearchlist(json[1])
+  }
+
+  async function fetchVideos(suggestion) {
+    setSearchlist(searchlist.length > 0)
+    const data = await fetch(YOUTUBE_SEARCH_API + suggestion);
+    const json = await data.json();
   }
 
   return (
@@ -38,11 +45,13 @@ const Head = () => {
           />
           {searchlist.length > 0 && <div className='absolute top-[53px] rounded w-[52.5rem] py-4 bg-white'>
             {searchlist.map((s, i) => (<ul key={i} className='px-5'>
-              <li className='text-lg shadow-sm py-1 '>{s}</li>
+              <li
+                onClick={() => fetchVideos(s)}
+                className='text-lg shadow-sm py-1 cursor-pointer '>{s}</li>
             </ul>))}
           </div>}
           <div className=' py-1 px-2 rounded-full rounded-l-none border-black border'>
-            <FiSearch size={24} />
+            <FiSearch size={24} onClick={find} />
           </div>
         </div>
         <div >

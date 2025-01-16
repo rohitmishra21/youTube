@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { YOUTUBE_VIDIOS_API } from '../utils/contants'
 import VidioCard from './VidioCard'
 import { Link } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { vidioUpdate } from '../store/Reducers/vidioData'
 
 const VidioContaner = () => {
 
-  const [vidios, setVidios] = useState([])
+  const dispatch = useDispatch()
+  const selectedData = useSelector((state) => state.videoData.dataOfVidio)
+
+
 
   useEffect(() => {
     fetchHendler()
@@ -15,13 +19,15 @@ const VidioContaner = () => {
   async function fetchHendler() {
     const data = await fetch(YOUTUBE_VIDIOS_API)
     const json = await data.json()
-    setVidios(json.items);
+    dispatch(vidioUpdate(json.items));
   }
+
+
 
   return (
     <div className='flex flex-wrap gap-3'>
-      {vidios.map((vidio) => (
-        <Link to={`/watch/${vidio.id}`} key={vidio.id}>
+      {selectedData.map((vidio, i) => (
+        <Link to={`/watch/${vidio.id}`} state={vidio} key={i}>
           <VidioCard info={vidio} />
         </Link>
       ))}
