@@ -1,23 +1,35 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { IoMdHome } from "react-icons/io";
+import { categories, YOUTUBE_SEARCH_API } from '../utils/contants';
+import { useDispatch } from 'react-redux';
+import { vidioUpdate } from '../store/Reducers/vidioData';
 const Sidebar = () => {
 
-  const isTrue = useSelector((state) => state.app.isMenuOpen)
-
-
-  if (!isTrue) {
-    return null
+  const dispatch = useDispatch()
+  async function fetchVideos(e) {
+    const data = await fetch(YOUTUBE_SEARCH_API + e.target.innerText);
+    const json = await data.json();
+    dispatch(vidioUpdate(json.items));
+    setQuery("");
   }
+
+
+
   return (
-    <div className='  shadow-sm shadow-gray-400 mr-2  px-2 w-[12%]'>
-      <ul className='capitalize'>
-        <div className='flex items-center py-6 text-2xl'>
-          <IoMdHome size={30} />
-          <Link to="/">home</Link >
+    <div className='  shadow-sm shadow-gray-400 mr-2 py-4  px-2 w-[12%]'>
+      <ul className='capitalize overflow-y-auto '>
+        <div className='flex items-center  py-3 gap-2 text-xl'>
+
+          <Link to="/" className='cursor-pointer'>🏡 Home</ Link>
 
         </div>
+        {categories.map((categorie) => (
+          <div key={categorie.id} onClick={(e) => fetchVideos(e)} className='flex items-center  py-3 gap-2 text-xl'>
+            {categorie.icon}
+            <li className='cursor-pointer'>{categorie.name}</ li>
+
+          </div>
+        ))}
 
       </ul>
     </div>

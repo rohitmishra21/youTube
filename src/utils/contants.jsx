@@ -33,3 +33,16 @@ export const buttonData = [
     }
 
 ]
+export const categories = [
+    { id: 1, icon: '🔥', name: 'Trending' },
+    { id: 2, icon: '🛒', name: 'Shopping' },
+    { id: 3, icon: '🎵', name: 'Music' },
+    { id: 4, icon: '🎬', name: 'Films' },
+    { id: 5, icon: '📺', name: 'Live' },
+    { id: 6, icon: '🎮', name: 'Gaming' },
+    { id: 7, icon: '📰', name: 'News' },
+    { id: 8, icon: '⚽', name: 'Sport' },
+    { id: 9, icon: '📚', name: 'Courses' },
+    { id: 10, icon: '💄', name: 'Fashion & beauty' },
+    { id: 11, icon: '🎙️', name: 'Podcasts' }
+];
