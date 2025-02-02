@@ -9,9 +9,7 @@ import Shemmer from './Shemmer'
 const VidioContaner = () => {
 
   const dispatch = useDispatch()
-  const selectedData = useSelector((state) => state.videoData.dataOfVidio)
-
-
+  const selectedData = useSelector((state) => state.videoData.dataOfVidio || []);
 
   useEffect(() => {
     fetchHendler()

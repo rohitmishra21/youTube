@@ -29,6 +29,7 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + query);
     const json = await data.json();
     setSearchlist(json[1]);
+
   }
 
   async function fetchVideos(suggestion) {
@@ -36,7 +37,7 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + suggestion);
     const json = await data.json();
     dispatch(vidioUpdate(json.items));
-    setQuery("");
+
   }
 
   return (
@@ -59,7 +60,7 @@ const Head = () => {
             value={query}
           />
           {searchlist.length > 0 && (
-            <div className="absolute top-[53px] rounded w-[52.5rem] py-4 bg-white">
+            <div className="absolute top-[53px] rounded w-[52.5rem] py-4  z-20 bg-white">
               {searchlist.map((s, i) => (
                 <ul key={i} className="">
                   <li

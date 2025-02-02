@@ -16,17 +16,16 @@ const WatchFullContaner = () => {
     const { viewCount } = statistics || {};
 
     return (
-        
+
         <div className="flex gap-10">
-            <ScrollToTop/>
+            <ScrollToTop />
             <div className="mt-1 ">
                 <div className="flex">
-                    <div className="w-[1000px]">
-                        <div className=" ">
+                    <div className="md:w-[1000px]">
+                        <div className="relative w-full  pb-[56.25%]">
                             <iframe
-                                width="1000"
-                                height="550"
-                                src={"https://www.youtube.com/embed/" + search.id}
+                                className="absolute top-0 left-0 w-full h-full"
+                                src={`https://www.youtube.com/embed/${search.id}`}
                                 title="YouTube video player"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -59,7 +58,7 @@ const WatchFullContaner = () => {
                 </div>
                 <CommentData id={search.id} />
             </div >
-            <div className="h-[100vh] overflow-y-scroll">
+            <div className="h-[100vh] md:block hidden overflow-y-scroll">
                 <VidioContaner />
             </div>
         </div>
