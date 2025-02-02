@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Provider } from 'react-redux'
 import Head from './components/Head'
 import Body from './components/Body'
 import store from './store/store'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainContaner from './components/MainContaner'
-import WatchFullContaner from './components/WatchFullContaner'
+
+
+const WatchFullContaner =lazy(() => import("./components/WatchFullContaner"))
 
 const Router = createBrowserRouter([
   {
@@ -18,7 +20,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/watch/:id",
-        element: <WatchFullContaner />,
+        element: <Suspense fallback={<h1>Loading....</h1>}><WatchFullContaner /></Suspense>,
       }
     ]
   }

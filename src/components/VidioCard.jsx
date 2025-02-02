@@ -8,7 +8,7 @@ const VidioCard = ({ info }) => {
 
   return (
     <div className="md:w-80  md:h-96 py-8">
-      <img className="rounded" src={thumbnails?.medium?.url} alt="" />
+      <img className="rounded" src={thumbnails?.medium?.url} loading="lazy" alt="" />
       <ul>
         <li className="py-3 font-bold overflow-x-hidden">{title}</li>
         <li className="pb-2 font-medium">{channelTitle}</li>
