@@ -42,7 +42,7 @@ const Head = () => {
 
   return (
     <>
-      <div className="flex  items-center  shadow-sm px-2 shadow-gray-400 justify-between w-full bg-red-400  py-4 ">
+      <div className="flex  items-center  shadow-sm px-2 shadow-gray-400 justify-between w-full   py-4 ">
         <div className="flex items-center gap-3">
           <FiMenu
             size={30}
