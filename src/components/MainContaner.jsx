@@ -4,8 +4,8 @@ import VidioContaner from './VidioContaner'
 
 const MainContaner = () => {
     return (
-        < div className='w-[88%]' >
-           <VidioContaner />
+        < div className='md:w-[88%] w-full md:mx-0' >
+            <VidioContaner />
         </ div>
     )
 }

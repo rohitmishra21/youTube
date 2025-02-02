@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainContaner from './components/MainContaner'
 
 
-const WatchFullContaner =lazy(() => import("./components/WatchFullContaner"))
+const WatchFullContaner = lazy(() => import("./components/WatchFullContaner"))
 
 const Router = createBrowserRouter([
   {

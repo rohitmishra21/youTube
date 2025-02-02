@@ -17,12 +17,12 @@ const WatchFullContaner = () => {
 
     return (
 
-        <div className="flex gap-10">
+        <div className="flex  gap-10">
             <ScrollToTop />
-            <div className="mt-1 ">
-                <div className="flex">
+            <div className="mt-1  ">
+                <div className="flex ">
                     <div className="md:w-[1000px]">
-                        <div className="relative w-full  pb-[56.25%]">
+                        <div className="relative  pb-[56.25%]">
                             <iframe
                                 className="absolute top-0 left-0 w-full h-full"
                                 src={`https://www.youtube.com/embed/${search.id}`}
@@ -34,7 +34,7 @@ const WatchFullContaner = () => {
                             ></iframe>
                         </div>
                         <div>
-                            <h1 className="text-2xl py-3 font-bold">{title}</h1>
+                            <h1 className="md:text-2xl py-3 font-bold">{title}</h1>
                             <div className="flex justify-between items-center py-2">
                                 <div className="flex">
 
@@ -56,7 +56,12 @@ const WatchFullContaner = () => {
                         </div>
                     </div>
                 </div>
-                <CommentData id={search.id} />
+                <div className="hidden md:block">
+                    <CommentData id={search.id} />
+                </div>
+                <div className="h-[100vh] block md:hidden w-full">
+                    <VidioContaner />
+                </div>
             </div >
             <div className="h-[100vh] md:block hidden overflow-y-scroll">
                 <VidioContaner />

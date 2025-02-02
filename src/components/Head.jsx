@@ -42,7 +42,7 @@ const Head = () => {
 
   return (
     <>
-      <div className="flex  items-center shadow-sm px-2 shadow-gray-400 justify-between w-full  py-4 ">
+      <div className="flex  items-center  shadow-sm px-2 shadow-gray-400 justify-between w-full bg-red-400  py-4 ">
         <div className="flex items-center gap-3">
           <FiMenu
             size={30}
@@ -51,7 +51,7 @@ const Head = () => {
           />
           {LOGO_SVG}
         </div>
-        <div className="flex items-center w-[70%]">
+        <div className="flex items-center md:w-[70%]">
           <input
             type="text"
             placeholder="Search"
@@ -60,7 +60,7 @@ const Head = () => {
             value={query}
           />
           {searchlist.length > 0 && (
-            <div className="absolute top-[53px] rounded w-[52.5rem] py-4  z-20 bg-white">
+            <div className="absolute top-[53px] rounded w-full md:left-72  left-0 md:w-[52.5rem] py-4  z-20 bg-white">
               {searchlist.map((s, i) => (
                 <ul key={i} className="">
                   <li

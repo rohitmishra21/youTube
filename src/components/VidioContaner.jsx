@@ -31,7 +31,7 @@ const VidioContaner = () => {
     );
   }
   return (
-    <div className='scroll flex flex-wrap gap-3 h-screen overflow-y-auto'>
+    <div className='scroll flex justify-center flex-wrap gap-3 h-screen overflow-y-auto'>
       {selectedData.map((vidio, i) => (
         <Link to={vidio.id.videoId ? `/watch/${vidio.id.videoId}` : `/watch/${vidio.id}`} state={vidio} key={i}>
           <VidioCard info={vidio} />
