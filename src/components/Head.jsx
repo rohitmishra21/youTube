@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { LOGO_SVG } from "../utils/svg.jsx";
-import { FiSearch } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../store/Reducers/appSlice.jsx";
 import {
@@ -14,6 +13,8 @@ import { setSearchQuery } from "../store/Reducers/searchSlice.jsx";
 
 const Head = () => {
   const [searchlist, setSearchlist] = useState([]);
+  const [focus, setFocus] = useState(false)
+  const [cahcheData, setcahcheData] = useState({})
   const dispatch = useDispatch();
   const query = useSelector((state) => state.search);
 
@@ -22,15 +23,25 @@ const Head = () => {
   }
 
   useEffect(() => {
-    searchHendler();
+    const timer = setTimeout(searchHendler, 3000)
+    return (() => {
+      clearTimeout(timer)
+    })
   }, [query]);
 
   async function searchHendler() {
+    if (cahcheData[query]) {
+      setSearchlist(cahcheData[query][1]); 
+      return;
+    }
+
     const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + query);
     const json = await data.json();
     setSearchlist(json[1]);
-
+    setcahcheData({ ...cahcheData, [query]: json });
   }
+  console.log(cahcheData);
+
 
   async function fetchVideos(suggestion) {
     setSearchlist(searchlist.length > 0);
@@ -53,13 +64,15 @@ const Head = () => {
         </div>
         <div className="flex items-center md:w-[70%]">
           <input
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
             type="text"
             placeholder="Search"
             className="border-black px-5 border py-1 rounded-full w-[80%]"
             onChange={(e) => dispatch(setSearchQuery(e.target.value))}
             value={query}
           />
-          {searchlist.length > 0 && (
+          {focus && (
             <div className="absolute top-[53px] rounded w-full md:left-72  left-0 md:w-[52.5rem] py-4  z-20 bg-white">
               {searchlist.map((s, i) => (
                 <ul key={i} className="">

@@ -21,7 +21,7 @@ const WatchFullContaner = () => {
             <ScrollToTop />
             <div className="mt-1  ">
                 <div className="flex ">
-                    <div className="md:w-[1000px]">
+                    <div className="md:w-[800px]">
                         <div className="relative  pb-[56.25%]">
                             <iframe
                                 className="absolute top-0 left-0 w-full h-full"
